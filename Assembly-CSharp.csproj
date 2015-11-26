@@ -45,9 +45,17 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Climate\DayNightCycle\DayNightCycle.cs" />
-     <Compile Include="Assets\EnemyManager.cs" />
      <Compile Include="Assets\Player.cs" />
+     <Compile Include="Assets\PlayerEnvironment\Climate\DayNightCycle\DayNightCycle.cs" />
+     <Compile Include="Assets\PlayerEnvironment\Pickups\Scripts\RandomPosition.cs" />
+     <Compile Include="Assets\PlayerEnvironment\Pickups\Scripts\TreeHealth.cs" />
+     <Compile Include="Assets\PlayerEnvironment\PlayerInterface\HealthBar\Health.cs" />
+     <Compile Include="Assets\PlayerEnvironment\PlayerInterface\Inventory\Scripts\Inventory.cs" />
+     <Compile Include="Assets\PlayerEnvironment\PlayerInterface\Inventory\Scripts\Item.cs" />
+     <Compile Include="Assets\PlayerEnvironment\PlayerInterface\Inventory\Scripts\PlayerCommands.cs" />
+     <Compile Include="Assets\PlayerEnvironment\PlayerInterface\Inventory\Scripts\Slot.cs" />
+     <Compile Include="Assets\Scripts\Database.cs" />
+     <Compile Include="Assets\Scripts\LoadOnClick.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\AssertionComponent.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\AssertionException.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\Assertions.cs" />
@@ -90,11 +98,10 @@
      <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestRunnerCallbackList.cs" />
      <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestRunnerConfigurator.cs" />
      <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestingAssets\CallTesting.cs" />
-     <Compile Include="Assets\enemyAIv2.cs" />
-     <Compile Include="Assets\enemyHealth.cs" />
      <Compile Include="Assets\playerHealth.cs" />
      <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\Cursor.shader" />
      <None Include="Assets\UnityTestTools\LICENSE.txt" />
+     <None Include="Assets\PlayerEnvironment\Assets\Palm Trees\Shaders\WavingDoublePassNoCullBackface.shader" />
      <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\ParticleAdditiveBlend.shader" />
      <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\Additive.shader" />
      <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\Fallback.shader" />
@@ -116,6 +123,7 @@
      <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\LaserScope.shader" />
      <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\SuperSimpleSelfIllumination.shader" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
+     <None Include="Assets\PlayerEnvironment\Assets\Palm Trees\Shaders\WavingDoublePassCullBackface.shader" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
