@@ -35,6 +35,14 @@ public class Health : MonoBehaviour {
         }
     }
      
+
+	void OnCollisionEnter (Collision col)
+	{
+		if(col.gameObject.tag == "wolf")
+		{
+			changeHealth(-5);
+		}
+	}
     public void changeHealth(float percent)
     {
         currentHealth = (CurrentHealth + percent);
