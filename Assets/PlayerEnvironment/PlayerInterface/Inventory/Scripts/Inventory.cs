@@ -88,6 +88,7 @@ public class Inventory : MonoBehaviour {
     }
     public Text logCountText;
     public Text messageText;
+    public bool makeRaftAttepted;
     
     // Use this for initialization
     void Start () {
@@ -467,11 +468,12 @@ public class Inventory : MonoBehaviour {
             if (!temp.isEmpty && temp.currentItem.type == ItemType.AXE)
             {
                 messageText.text = "Right click on axe to use it";
+                makeRaftAttepted = false;
             }
         }
 
         GameObject axe = GameObject.Find("axe");
-        if (axe != null && axe.activeSelf)
+        if (axe != null && axe.activeSelf && !makeRaftAttepted)
         {
             messageText.text = "You can now chop down tress to collect logs";
         }
@@ -479,6 +481,7 @@ public class Inventory : MonoBehaviour {
 
     public void makeRaft()
     {
+        makeRaftAttepted = true;
         if (logCount < 6)
         {
             messageText.text = "You need 6 logs to make a raft";
