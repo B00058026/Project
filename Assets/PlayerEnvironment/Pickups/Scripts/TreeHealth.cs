@@ -32,7 +32,7 @@ public class TreeHealth : MonoBehaviour {
     {
         timer += Time.deltaTime; 
 
-        if (health > 0)
+        if (health > 0 )
         {
             if (Vector3.Distance(transform.position, cam.transform.root.transform.position) < 5f)
             {

@@ -8,6 +8,7 @@ public class PlayerCommands : MonoBehaviour {
     private GameObject axe;
     private Animation axeAnimation;
     private Health health;
+    public static bool onBeach;
 
     // Use this for initialization
     void Start () {
@@ -43,6 +44,27 @@ public class PlayerCommands : MonoBehaviour {
         {
             inventory.addItem(c.gameObject.GetComponent<Item>());
             Destroy(c.gameObject);
+        }
+    }
+
+    public void OnTriggerEnter(Collider c)
+    {
+        Debug.Log("Enter not in");
+        if (c.gameObject.tag == "Beach")
+        {
+            onBeach = true;
+            Debug.Log(onBeach);
+        }
+
+    }
+
+    public void OnTriggerExit(Collider c)
+    {
+        Debug.Log("Exit not in");
+        if (c.gameObject.tag == "Beach")
+        {
+            onBeach = false;
+            Debug.Log(onBeach);
         }
     }
 

@@ -59,7 +59,6 @@ public class Inventory : MonoBehaviour {
             return instance;
         }
     }
-
     private bool fadingIn, fadingOut;
     public float fadeTime;
     private static GameObject slotClicked;
@@ -75,7 +74,20 @@ public class Inventory : MonoBehaviour {
     private static Text tooltipText;
     public Text visualTextObject;
     private static Text visualText;
-    
+    private int logCount;
+    public int LogCount
+    {
+        get
+        {
+            return logCount;
+        }
+        set
+        {
+            logCount = value;
+        }
+    }
+    public Text logCountText;
+    public Text messageText;
     
     // Use this for initialization
     void Start () {
@@ -130,6 +142,9 @@ public class Inventory : MonoBehaviour {
                 StartCoroutine("fadeIn");
             }
         }
+
+        checkLogCount();
+        updateMessages();
 	}
 
     private void createLayout()
@@ -427,6 +442,56 @@ public class Inventory : MonoBehaviour {
     public void hideTooltip()
     {
         tooltip.SetActive(false);
+    }
+
+    private void checkLogCount()
+    {
+        logCount = 0;
+
+        foreach (GameObject slot in slots)
+        {
+            Slot temp = slot.GetComponent<Slot>();
+            if(!temp.isEmpty && temp.currentItem.type == ItemType.LOG)
+            {
+                LogCount++;
+                logCountText.text = LogCount + " logs collected";
+            }
+        }
+    }
+
+    public void updateMessages()
+    {
+        foreach (GameObject slot in slots)
+        {
+            Slot temp = slot.GetComponent<Slot>();
+            if (!temp.isEmpty && temp.currentItem.type == ItemType.AXE)
+            {
+                messageText.text = "Right click on axe to use it";
+            }
+        }
+
+        GameObject axe = GameObject.Find("axe");
+        if (axe != null && axe.activeSelf)
+        {
+            messageText.text = "You can now chop down tress to collect logs";
+        }
+    }
+
+    public void makeRaft()
+    {
+        if (logCount < 6)
+        {
+            messageText.text = "You need 6 logs to make a raft";
+        }
+        else if (logCount >= 6 && !PlayerCommands.onBeach)
+        {
+            messageText.text = "You need to be on the beach to make a raft";
+        }
+        else if (logCount >= 6 && PlayerCommands.onBeach)
+        {
+            //load winning scene
+            Debug.Log("Winner");
+        }
     }
 
     private IEnumerator fadeOut()
